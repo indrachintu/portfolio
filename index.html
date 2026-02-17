@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Indra Avadootha | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+color:#e2e8f0;
+background:#020617;
+overflow-x:hidden;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:0 20px;
+}
+
+:root{
+  --bg:#020617;
+  --text:#e2e8f0;
+  --navText:#ffffff;
+  --subText:#cbd5f5;
+  --card:rgba(255,255,255,0.06);
+  --nav:rgba(0,0,0,0.5);
+  --accent:#38bdf8;
+}
+
+.light-mode{
+  --bg:#f1f5f9;
+  --text:#020617;
+  --navText:#020617;
+  --subText:#334155;
+  --card:rgba(0,0,0,0.05);
+  --nav:rgba(255,255,255,0.7);
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:65px;
+}
+
+.logo{
+color:#38bdf8;
+font-weight:700;
+font-size:20px;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+  color:var(--navText);
+  text-decoration:none;
+}
+
+
+/* ===== HERO ===== */
+
+.hero{
+padding:70px 0 40px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.hero-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.profile{
+width:230px;
+border-radius:50%;
+border:4px solid #38bdf8;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero span{
+color:#38bdf8;
+}
+
+.typing{
+color:#38bdf8;
+font-weight:600;
+height:24px;
+margin-bottom:10px;
+}
+
+.contact-info{
+margin:10px 0 15px 0;
+line-height:1.6;
+font-size:15px;
+}
+
+.contact-info span{
+  display:block;
+  color:var(--subText);
+}
+
+
+.btn{
+background:#38bdf8;
+color:black;
+padding:10px 22px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
+margin-top:10px;
+}
+
+/* ===== THEME COLORS ===== */
+
+:root{
+  --bg:#020617;
+  --text:#e2e8f0;
+  --card:rgba(255,255,255,0.06);
+  --nav:rgba(0,0,0,0.5);
+  --accent:#38bdf8;
+}
+
+.light-mode{
+  --bg:#f1f5f9;
+  --text:#020617;
+  --card:rgba(0,0,0,0.05);
+  --nav:rgba(255,255,255,0.7);
+}
+
+/* Apply variables */
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  overflow-x:hidden;
+}
+
+
+nav{
+  background:var(--nav);
+}
+
+.card{
+  background:var(--card);
+}
+
+.logo{
+  color:var(--accent);
+}
+
+h2{
+  color:var(--accent);
+}
+
+.timeline{
+  border-left:2px solid var(--accent);
+  box-shadow:0 0 12px rgba(56,189,248,0.6);
+}
+
+/* Toggle Button */
+
+.theme-btn{
+  background:var(--accent);
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+}
+
+/* ===== SECTIONS ===== */
+
+section{
+padding:35px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+h2{
+color:#38bdf8;
+margin-bottom:18px;
+}
+
+/* ===== TIMELINE LINE FOR ALL SECTIONS ===== */
+
+.timeline{
+border-left:2px solid #38bdf8;
+padding-left:25px;
+margin-left:10px;
+box-shadow:0 0 12px rgba(56,189,248,0.6);
+}
+
+
+/* ===== CARD ===== */
+
+.card{
+background:var(--card);
+backdrop-filter:blur(12px);
+padding:22px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.25);
+margin-bottom:20px;
+}
+
+/* ===== GRID ===== */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:18px;
+}
+
+/* ===== CERTIFICATES ===== */
+
+.cert-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+}
+
+.cert-grid img{
+width:100%;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* ===== MODAL ===== */
+
+.modal{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+}
+
+.modal-content{
+margin:auto;
+display:block;
+max-width:90%;
+max-height:85vh;
+border-radius:10px;
+animation:zoom 0.3s;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:35px;
+color:white;
+font-size:40px;
+cursor:pointer;
+}
+
+@keyframes zoom{
+from{transform:scale(0.7);}
+to{transform:scale(1);}
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:18px;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+
+.hidden{
+opacity:0;
+transform:translateY(25px);
+transition:0.6s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:768px){
+.hero-inner{
+flex-direction:column;
+text-align:center;
+}
+nav ul{
+display:none;
+}
+}
+nav a.active{
+color:#38bdf8;
+border-bottom:2px solid #38bdf8;
+padding-bottom:4px;
+}
+html{
+scroll-behavior:smooth;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.theme-btn{
+  background:#38bdf8;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.theme-btn:hover{
+  transform:scale(1.05);
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="container nav-inner">
+
+<div class="logo">Indra</div>
+
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#Internship">Internship</a></li>
+    <li><a href="#certifications">Certificates</a></li>
+
+    <!-- Theme Button Right Side -->
+  <li>
+    <button id="themeToggle" class="theme-btn">🌙</button>
+  </li>
+  </ul>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero hidden">
+<div class="container hero-inner">
+
+<img src="profile.jpg" class="profile">
+
+<div>
+<h1>Hi, I'm <span>Indra Avadootha</span></h1>
+<div class="typing" id="typing"></div>
+
+<div class="contact-info">
+<span>📞 8019186880</span>
+<span>📧 indrachintu123@gmail.com</span>
+<span>📍 Hyderabad, Telangana</span>
+</div>
+
+<a href="resume.pdf" class="btn">View Resume</a>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="hidden">
+<div class="container">
+
+<h2>About Me</h2>
+
+<div class="timeline">
+<div class="card">
+<p>
+To obtain a challenging position in a reputed organization where I can utilize my skills in C, Java, Python, HTML,
+CSS, and JavaScript, along with my strengths in full-stack development, problem-solving, leadership, and
+communication to design and implement efficient software solutions.
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="hidden">
+  <div class="container">
+
+    <h2>Skills</h2>
+
+    <div class="timeline">
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Programming Languages</h3>
+          <p>Java, Python, C</p>
+        </div>
+
+        <div class="card">
+          <h3>Web Technologies</h3>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+
+        <div class="card">
+          <h3>Database Management</h3>
+          <p>MySQL, MongoDB</p>
+        </div>
+
+        <div class="card">
+          <h3>Core Competencies</h3>
+          <p>Data Structures & Algorithms (Java), Problem Solving</p>
+        </div>
+
+        <div class="card">
+          <h3>Tools & Platforms</h3>
+          <p>Git, GitHub, Eclipse</p>
+        </div>
+
+        <div class="card">
+          <h3>Soft Skills</h3>
+          <p>Leadership, Communication, Teamwork</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education" class="hidden">
+<div class="container">
+
+<h2>Education</h2>
+
+<div class="timeline">
+
+<div class="card">
+<h3>B.Tech — Computer Science Engineering</h3>
+<p>CMR Institute Of Technology | 2023 – 2027 (Present)</p>
+<p>CGPA: 7.86 (Till 6th Semester)</p>
+</div>
+
+<div class="card">
+<h3>Intermediate</h3>
+<p>Sri Krishnadevaraya Junior College | 2021 – 2023</p>
+<p>CGPA: 9.7</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="hidden">
+<div class="container">
+
+<h2>Projects</h2>
+
+<div class="timeline">
+<div class="grid">
+
+<div class="card">
+<h3>Crop Cart – Web Platform</h3>
+<p>A web-based platform designed to empower farmers by connecting them directly with consumers, eliminating the need for middlemen. The system ensures fair pricing, transparency, and higher profits for farmers while providing consumers with fresh and affordable produce. Developed to promote a sustainable and balanced agricultural marketplace. Provides a user-friendly interface for farmers to list and manage their crops easily. Integrates secure payment options and real-time crop availability updates.</p>
+</div>
+
+<div class="card">
+<h3>Healthy Diet & Fitness Awareness</h3>
+<p>A project focused on promoting the importance of nutrition in achieving fitness goals and improving workout performance. Highlighted the significance of maintaining a balanced diet alongside regular exercise. Researched and analyzed dietary needs for different workout goals such as strength training, endurance, and weight loss. Provided insights on pre- and post-workout meals to enhance energy levels, muscle recovery, and fat burning. Created informative content to guide individuals in aligning their nutrition with their fitness routines.</p>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- INTERNSHIP -->
+
+<section id="Internship" class="hidden">
+<div class="container">
+
+<h2>Internship / Experience</h2>
+
+<div class="timeline">
+
+<div class="card">
+<h3>Java Developer Intern — Cognifyz Technologies | 2025</h3>
+<p>Gained hands-on experience in core Java and object-oriented programming. Worked on developing small-scale Java projects and backend modules. Learned about data structures, algorithms, and basic database connectivity using JDBC. Collaborated with team members to debug, test, and improve code performance. Enhanced understanding of software development lifecycle and project workflow. Strengthened problem-solving, logical thinking, and teamwork abilities.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+
+<section id="certifications" class="hidden">
+<div class="container">
+
+<h2>Certificates</h2>
+
+<div class="timeline">
+<div class="cert-grid">
+
+<img src="cert2.jpg" onclick="openModal(this.src)">
+<img src="cert4.jpg" onclick="openModal(this.src)">
+<img src="cert6.jpg" onclick="openModal(this.src)">
+<img src="cert5.jpg" onclick="openModal(this.src)">
+
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+
+<div id="imgModal" class="modal" onclick="closeModal()">
+<span class="close">&times;</span>
+<img class="modal-content" id="modalImg">
+</div>
+
+<footer>
+<p>© 2026 Indra Avadootha</p>
+</footer>
+
+<script>
+
+/* PARTICLES */
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#38bdf8";
+ctx.fill();
+p.x+=p.dx;
+p.y+=p.dy;
+});
+requestAnimationFrame(animate);
+}
+animate();
+
+/* SCROLL */
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+observer.observe(el);
+});
+
+/* TYPING */
+
+const text = ["Full Stack Developer","Java Enthusiast","Problem Solver"];
+let count=0,index=0;
+
+function type(){
+if(count===text.length) count=0;
+let current=text[count];
+document.getElementById("typing").textContent=current.slice(0,++index);
+if(index===current.length){count++;index=0;setTimeout(type,1000);}
+else setTimeout(type,80);
+}
+type();
+
+/* MODAL */
+
+function openModal(src){
+document.getElementById("imgModal").style.display="block";
+document.getElementById("modalImg").src=src;
+}
+
+function closeModal(){
+document.getElementById("imgModal").style.display="none";
+}
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+const sectionTop = section.offsetTop - 100;
+if(pageYOffset >= sectionTop){
+current = section.getAttribute("id");
+}
+});
+
+navLinks.forEach(a => {
+a.classList.remove("active");
+if(a.getAttribute("href") === "#" + current){
+a.classList.add("active");
+}
+});
+
+});
+
+/* THEME TOGGLE */
+
+const toggleBtn = document.getElementById("themeToggle");
+
+toggleBtn.addEventListener("click", () => {
+
+  document.body.classList.toggle("light-mode");
+
+  if(document.body.classList.contains("light-mode")){
+    toggleBtn.textContent = "☀️";
+    localStorage.setItem("theme","light");
+  }else{
+    toggleBtn.textContent = "🌙";
+    localStorage.setItem("theme","dark");
+  }
+
+});
+
+/* Load saved theme */
+
+if(localStorage.getItem("theme") === "light"){
+  document.body.classList.add("light-mode");
+  toggleBtn.textContent = "☀️";
+}
+
+</script>
+
+</body>
+</html>
