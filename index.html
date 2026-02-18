@@ -118,11 +118,13 @@ color:#38bdf8;
 }
 
 .typing{
-color:#38bdf8;
-font-weight:600;
-height:24px;
-margin-bottom:10px;
+  color:#38bdf8;
+  font-weight:600;
+  font-size:18px;
+  margin-bottom:12px;
+  line-height:1.4;
 }
+
 
 .contact-info{
 margin:10px 0 15px 0;
@@ -357,6 +359,23 @@ scroll-behavior:smooth;
 .theme-btn:hover{
   transform:scale(1.05);
 }
+.btn-group{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn.download{
+  background:#38bdf8;
+  color:black;
+  border:none;
+}
+
+
+.btn.download:hover{
+  background:#38bdf8;
+  color:black;
+}
 
 
 </style>
@@ -400,15 +419,28 @@ scroll-behavior:smooth;
 
 <div>
 <h1>Hi, I'm <span>Indra Avadootha</span></h1>
-<div class="typing" id="typing"></div>
+<div class="typing">
+  Frontend & Full Stack Developer <br>
+  B.Tech CSE | CMR Institute of Technology
+</div>
+
 
 <div class="contact-info">
 <span>📞 8019186880</span>
 <span>📧 indrachintu123@gmail.com</span>
 <span>📍 Hyderabad, Telangana</span>
 </div>
+<div class="btn-group">
+  <a href="Indra_Resume.pdf" class="btn" target="_blank">View Resume</a>
+  <a href="./Indra_Resume.pdf" class="btn download" download="Indra_Resume.pdf">
+  ⬇ Download Resume
+</a>
 
-<a href="resume.pdf" class="btn">View Resume</a>
+
+</div>
+
+
+
 </div>
 
 </div>
@@ -633,21 +665,6 @@ entry.target.classList.add("show");
 document.querySelectorAll(".hidden").forEach(el=>{
 observer.observe(el);
 });
-
-/* TYPING */
-
-const text = ["Full Stack Developer","Java Enthusiast","Problem Solver"];
-let count=0,index=0;
-
-function type(){
-if(count===text.length) count=0;
-let current=text[count];
-document.getElementById("typing").textContent=current.slice(0,++index);
-if(index===current.length){count++;index=0;setTimeout(type,1000);}
-else setTimeout(type,80);
-}
-type();
-
 /* MODAL */
 
 function openModal(src){
@@ -705,6 +722,65 @@ if(localStorage.getItem("theme") === "light"){
   document.body.classList.add("light-mode");
   toggleBtn.textContent = "☀️";
 }
+document.getElementById("downloadBtn").addEventListener("click", function(e){
+  e.preventDefault();
+
+  
+});
+document.getElementById("downloadBtn").addEventListener("click", function () {
+
+document.getElementById("downloadBtn").addEventListener("click", function(e){
+  e.preventDefault();
+});
+
+document.getElementById("downloadBtn").addEventListener("click", function () {
+
+  const fileUrl = "./files/Indra_resume.pdf";
+
+  fetch(fileUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("File not found");
+      }
+      return response.blob();
+    })
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Indra_Resume.pdf";
+      document.body.appendChild(a);
+      a.click();
+
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+      alert("Download failed. Check resume file path.");
+      console.error(error);
+    });
+
+});
+function forceDownload(e) {
+  e.preventDefault();
+
+  const link = document.createElement("a");
+  link.href = "Indra_Resume.pdf";
+  link.download = "Indra_Resume.pdf";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
+
+  
+
+});
+
+
 
 </script>
 
