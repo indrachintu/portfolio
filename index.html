@@ -251,18 +251,40 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:18px;
 }
 
-/* ===== CERTIFICATES ===== */
+/* ===== CERTIFICATES GRID FIX ===== */
+/* ===== CERTIFICATES GRID ===== */
 
 .cert-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+  gap:18px;
+  width:100%;
 }
 
-.cert-grid img{
-width:100%;
-border-radius:10px;
-cursor:pointer;
+.cert-item{
+  background:white;
+  border-radius:10px;
+  padding:6px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:0.3s ease;
+  overflow:hidden;
+}
+
+.cert-item img{
+  width:100%;
+  height:120px;   /* smaller size */
+  object-fit:cover;
+  border-radius:6px;
+}
+
+/* Hover */
+
+.cert-item:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 18px rgba(56,189,248,0.6);
 }
 
 /* ===== MODAL ===== */
@@ -398,6 +420,7 @@ scroll-behavior:smooth;
     <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#hackathons">Hackathons</a></li>
     <li><a href="#Internship">Internship</a></li>
     <li><a href="#certifications">Certificates</a></li>
 
@@ -564,6 +587,44 @@ communication to design and implement efficient software solutions.
 </div>
 </section>
 
+<!-- HACKATHONS -->
+
+<section id="hackathons" class="hidden">
+<div class="container">
+
+<h2>Hackathons</h2>
+
+<div class="timeline">
+
+<div class="grid">
+
+<div class="card">
+<h3>Smart India Hackathon 2025</h3>
+<p>Secured merit position and selected to represent the institution at the national level competition.</p>
+</div>
+
+<div class="card">
+<h3>GDG Solution Challenge</h3>
+<p>Participated in a global innovation challenge focused on solving real-world problems using technology.</p>
+</div>
+
+<div class="card">
+<h3>TechSprint Hackathon</h3>
+<p>Collaborated in a fast-paced coding environment to develop creative technical solutions within limited time.</p>
+</div>
+
+<div class="card">
+<h3>GDG_Agentathon 2025</h3>
+<p>Participated in a large-scale AI hackathon focused on building intelligent agent-based applications.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
 <!-- INTERNSHIP -->
 
 <section id="Internship" class="hidden">
@@ -584,25 +645,34 @@ communication to design and implement efficient software solutions.
 </section>
 
 <!-- CERTIFICATES -->
-
-<section id="certifications" class="hidden">
-<div class="container">
-
-<h2>Certificates</h2>
-
-<div class="timeline">
-<div class="cert-grid">
-
-<img src="cert2.jpg" onclick="openModal(this.src)">
-<img src="cert4.jpg" onclick="openModal(this.src)">
-<img src="cert6.jpg" onclick="openModal(this.src)">
-<img src="cert5.jpg" onclick="openModal(this.src)">
-
-</div>
+<div class="cert-item">
+  <img src="cert1.jpg" alt="Certificate" onclick="openModal(this.src)">
 </div>
 
+<div class="cert-item">
+  <img src="cert22.jpg" alt="Certificate" onclick="openModal(this.src)">
 </div>
-</section>
+
+<div class="cert-item">
+  <img src="cert3.jpg" alt="Certificate" onclick="openModal(this.src)">
+</div>
+
+<div class="cert-item">
+  <img src="cert4.jpg" alt="Certificate" onclick="openModal(this.src)">
+</div>
+
+<div class="cert-item">
+  <img src="cert5.jpg" alt="Certificate" onclick="openModal(this.src)">
+</div>
+
+<div class="cert-item">
+  <img src="cert6.jpg" alt="Certificate" onclick="openModal(this.src)">
+</div>
+
+<div class="cert-item">
+  <img src="cert7.jpg" alt="Certificate" onclick="openModal(this.src)">
+</div>
+
 
 <!-- MODAL -->
 
@@ -771,6 +841,14 @@ function forceDownload(e) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
+function openModal(src){
+  document.getElementById("imgModal").style.display="block";
+  document.getElementById("modalImg").src=src;
+}
+
+function closeModal(){
+  document.getElementById("imgModal").style.display="none";
 }
 
 
