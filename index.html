@@ -844,7 +844,7 @@ document.getElementById("downloadBtn").addEventListener("click", function(e){
 
 document.getElementById("downloadBtn").addEventListener("click", function () {
 
-  const fileUrl = "./files/Indra_resume.pdf";
+  const fileUrl = "C:\\Users\\indra\\OneDrive\\Desktop\\Portfolio\\Indra Avadootha Resume_N.pdf";
 
   fetch(fileUrl)
     .then(response => {
@@ -858,7 +858,7 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = "Indra_Resume.pdf";
+      a.download = "Indra Avadootha Resume_N";
       document.body.appendChild(a);
       a.click();
 
@@ -875,8 +875,8 @@ function forceDownload(e) {
   e.preventDefault();
 
   const link = document.createElement("a");
-  link.href = "Indra_Resume.pdf";
-  link.download = "Indra_Resume.pdf";
+  link.href = "Indra Avadootha Resume_N";
+  link.download = "Indra Avadootha Resume_N";
 
   document.body.appendChild(link);
   link.click();
